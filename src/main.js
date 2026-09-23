@@ -15,6 +15,23 @@ const catalogo = document.getElementById('catalogo')
 //       <button data-id="${p.id}">Agregar</button>
 //     </article>
 //   `).join('')
+import { productos } from "./datos.js";
+
+function mostrarProductos(lista) {
+  const catalogo = document.getElementById("catalogo");
+  catalogo.innerHTML = lista.map(p => `
+    <div class="bg-white rounded-lg shadow p-4 text-center">
+      <h2 class="text-xl font-semibold">${p.nombre}</h2>
+      <p>$${p.precio}</p>
+      <button data-id="${p.id}" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Agregar
+      </button>
+    </div>
+  `).join('');
+}
+
+mostrarProductos(productos);
+
 // ------------------------------------------------------------
 function mostrarProductos(lista) {
   // Escribe aquí tu código
